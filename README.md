@@ -32,7 +32,7 @@ git clone git@github.com:shevchukma/nplmd.git
 ```
 cd ./nginx
 docker build -t mynginx:0.1 . --no-cache
-docker run -d -p 80:80 mynginx:0.1 --name mynginx-container
+docker run -d -p 80:80 --name mynginx-container mynginx:0.1
 cd ..
 ```
 
