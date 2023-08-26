@@ -1,8 +1,12 @@
 #### Предварительные действия
 ##### Подготовить репозиторий Centos 8
-`cd /etc/yum.repos.d/ && sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*`
+```
+cd /etc/yum.repos.d/ && sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+```
 ##### Обновление и установка пакетов
-`yum update -y && yum install -y epel-release && yum install -y vim screen git`
+```
+yum update -y && yum install -y epel-release && yum install -y vim screen git
+```
 
 #### Установить докер:
 ```
@@ -16,9 +20,13 @@ systemctl status docker
 ```
 #### Git
 ##### Добавить ключ
-`ssh-keygen -t ed25519 -C "velikoross@gmail.com"`
+```
+ssh-keygen -t ed25519 -C "velikoross@gmail.com"
+```
 Внести в [github](https://github.com/settings/keys)
-`git clone git@github.com:shevchukma/nplmd.git`
+```
+git clone git@github.com:shevchukma/nplmd.git
+```
 
 #### Собрать и запустить nginx+php
 ```
@@ -42,10 +50,14 @@ docker run --rm -d -p 3306:3306 \
 
 #### Полезные командны
 ##### Удалить образы
-`docker image prune -a`
+```
+docker image prune -a
+```
 
 ##### Войти в контейнер
-`docker exec -it mymysql-container bash`
+```
+docker exec -it mymysql-container bash
+```
 #### Работа в Git
 Установка личных данных
 ```
