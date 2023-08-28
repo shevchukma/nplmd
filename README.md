@@ -70,3 +70,12 @@ git branch -M main
 git remote add origin git@github.com:shevchukma/nplmd.git
 git push -u origin main
 ```
+Создать новую ветку:
+```
+git branch from_oracle
+git checkout from_oracle
+```
+Загрузить в новую ветку:
+```
+git push --set-upstream origin from_oracle
+```
