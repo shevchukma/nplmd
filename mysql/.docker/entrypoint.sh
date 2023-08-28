@@ -8,7 +8,8 @@ MYSQL_PASSWORD=${MYSQL_PASSWORD:-userpass}
 
 # Запускаем MySQL
 echo "Запускаем MySQL"
-/usr/sbin/mysqld --user=mysql --datadir=/var/lib/mysql --skip-networking --initialize &
+/usr/sbin/mysqld --user=mysql --datadir=/var/lib/mysql --initialize
+#--skip-networking --initialize &
 echo "Ожидаем запуска MySQL"
 # Ожидаем запуска MySQL
 while [ ! -e /run/mysqld/mysqld.sock ]; do
