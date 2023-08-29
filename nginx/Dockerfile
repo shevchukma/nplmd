@@ -31,6 +31,7 @@ RUN apk add --no-cache php82 \
     php82-simplexml \
     php82-dom \
     php82-pdo_mysql \
+    php82-mysqli \
     php82-pdo_sqlite \
     php82-tokenizer \
     php82-pecl-redis
@@ -38,9 +39,9 @@ RUN apk add --no-cache php82 \
 RUN ln -s /usr/bin/php82 /usr/bin/php
 
 # Installing composer
-RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
-RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-RUN rm -rf composer-setup.php
+#RUN curl -sS https://getcomposer.org/installer -o composer-setup.php
+#RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+#RUN rm -rf composer-setup.php
 
 # Configure supervisor
 RUN mkdir -p /etc/supervisor.d/
@@ -55,7 +56,7 @@ COPY .docker/php.ini-production /etc/php82/php.ini
 
 # Configure nginx
 COPY .docker/nginx.conf /etc/nginx/
-COPY .docker/nginx-laravel.conf /etc/nginx/modules/
+#COPY .docker/site.conf /etc/nginx/site.conf
 
 RUN mkdir -p /run/nginx/
 RUN touch /run/nginx/nginx.pid

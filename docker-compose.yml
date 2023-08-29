@@ -8,10 +8,19 @@ services:
       MYSQL_USER: myuser
       MYSQL_PASSWORD: 123456
     ports:
-      - "3306"
+      - "3306:33060"
     volumes:
       # create volumes for use
       - /mnt/u01/mysql:/var/lib/mysql
       # bind mount my local my.cnf
       - $PWD/configs/my.cnf:/etc/my.cnf.d/my.cnf
-
+    
+  nginx-php:
+    ports:
+      - "80:80"
+    image: mynginx:${NGNXIMGVER}
+    volumes:
+      - /mnt/u01/www:/var/www/html/public
+      - $PWD/configs/site.conf:/etc/nginx/http.d/default.conf
+      - $PWD/configs/php.ini:/etc/php82/conf.d/99_myphp.ini
+      - $PWD/configs/php-fpm.conf:/etc/php82/conf.d/myphp-fpm.conf
