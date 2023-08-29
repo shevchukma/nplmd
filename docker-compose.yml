@@ -1,0 +1,17 @@
+version: '2'
+services:
+  percona-server:
+    image: mymysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: MYPWD
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3306"
+    volumes:
+      # create volumes for use
+      - /mnt/u01/mysql:/var/lib/mysql
+      # bind mount my local my.cnf
+      - $PWD/configs/my.cnf:/etc/my.cnf.d/my.cnf
+
